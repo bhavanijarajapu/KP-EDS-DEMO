@@ -60,8 +60,8 @@ export default async function decorate(block) {
     if (ul) sectionsDiv.append(ul.cloneNode(true));
     single.replaceWith(brandDiv, sectionsDiv, toolsDiv);
   } else if (children.length === 2) {
-    const toolsDiv = document.createElement('div');
-    nav.append(toolsDiv);
+    const sectionsDiv = document.createElement('div');
+    children[0].after(sectionsDiv);
   }
 
   const classes = ['brand', 'sections', 'tools'];
