@@ -58,11 +58,10 @@ a { color: var(--kp-blue-link); text-decoration: underline; }
 a:hover { text-decoration: none; }
 
 main {
-  display: flex;
-  max-width: var(--max-content-width);
+  display: block;
+  max-width: 860px;
   margin: 0 auto;
   padding: var(--spacing-l) var(--spacing-m);
-  gap: var(--spacing-l);
 }
 
 main .section { padding: var(--spacing-m) 0; }
