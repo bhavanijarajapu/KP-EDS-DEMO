@@ -5,6 +5,8 @@ const isDesktop = window.matchMedia('(min-width: 900px)');
 
 function toggleMenu(nav, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
+  nav.style.cssText = 'display:flex;align-items:center;width:100%;';
+  toolsDiv.style.cssText = 'margin-left:auto;display:flex;align-items:center;';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
 }
 
