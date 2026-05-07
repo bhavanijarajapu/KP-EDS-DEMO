@@ -82,5 +82,21 @@
 
 @media (max-width: 768px) {
   .nav-hamburger { display: block; }
+
+
+    .nav-wrapper {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-m);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+}
+
+nav#nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
   .nav-sections { display: none; }
 }
