@@ -62,6 +62,7 @@ export default async function decorate(block) {
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
+  navWrapper.style.cssText = 'width:100%;display:flex;align-items:center;padding:0 24px;';
   navWrapper.append(nav);
   block.append(navWrapper);
 }
