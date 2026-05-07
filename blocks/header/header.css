@@ -84,13 +84,12 @@
   .nav-hamburger { display: block; }
 
 
-    .nav-wrapper {
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-  padding: 0 var(--spacing-m);
+.nav-wrapper {
+  width: 100%;
   height: var(--header-height);
   display: flex;
   align-items: center;
+  padding: 0 var(--spacing-m);
 }
 
 nav#nav {
