@@ -35,7 +35,8 @@ export default async function decorate(block) {
     nav.append(document.createElement('div'));
   } else if (children.length === 2) {
     const mid = document.createElement('div');
-    children[0].after(mid);
+    nav.insertBefore(mid, children[1]);
+
   }
 
   // Assign nav classes
