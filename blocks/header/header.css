@@ -99,5 +99,10 @@ nav#nav {
   width: 100%;
   gap: 0;
 }
-  .nav-sections { display: none; }
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+}
+  .nav-sections { flex: 1; }
 }
