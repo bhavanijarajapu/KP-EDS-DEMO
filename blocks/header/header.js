@@ -5,8 +5,6 @@ const isDesktop = window.matchMedia('(min-width: 900px)');
 
 function toggleMenu(nav, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
-  nav.style.cssText = 'display:flex;align-items:center;width:100%;';
-  toolsDiv.style.cssText = 'margin-left:auto;display:flex;align-items:center;';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
 }
 
@@ -18,33 +16,30 @@ export default async function decorate(block) {
 
   const nav = document.createElement('nav');
   nav.id = 'nav';
+  nav.style.cssText = 'display:flex;align-items:center;width:100%;';
 
-  // Brand — always KP logo
+  // Brand — KP logo
   const brandDiv = document.createElement('div');
   brandDiv.className = 'nav-brand';
-  brandDiv.innerHTML = `<a href="/">
-    <img src="https://hpp.kaiserpermanente.org/failover/assets/images/kp-logo.svg"
-         alt="Kaiser Permanente" width="220" height="40">
-  </a>`;
+  brandDiv.innerHTML = `<a href="/"><img src="https://hpp.kaiserpermanente.org/failover/assets/images/kp-logo.svg" alt="Kaiser Permanente" width="220" height="40"></a>`;
 
-  // Sections — empty (no nav links on failover page)
+  // Sections — empty
   const sectionsDiv = document.createElement('div');
   sectionsDiv.className = 'nav-sections';
+  sectionsDiv.style.flex = '1';
 
-  // Tools — language picker from nav doc
+  // Tools — language picker
   const toolsDiv = document.createElement('div');
   toolsDiv.className = 'nav-tools';
+  toolsDiv.style.cssText = 'margin-left:auto;display:flex;align-items:center;';
 
   try {
     const fragment = await loadFragment(navPath);
-    if (fragment) {
-      // Last section = tools (Language picker)
+    if (fragment && fragment.children.length > 0) {
       const sections = [...fragment.children];
-      if (sections.length > 0) {
-        const lastSection = sections[sections.length - 1];
-        if (lastSection.textContent.trim()) {
-          toolsDiv.append(lastSection.cloneNode(true));
-        }
+      const lastSection = sections[sections.length - 1];
+      if (lastSection.textContent.trim()) {
+        toolsDiv.append(lastSection.cloneNode(true));
       }
     }
   } catch (e) {
