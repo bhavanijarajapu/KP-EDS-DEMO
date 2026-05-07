@@ -1,3 +1,5 @@
+console.log('header.js v3 loaded');
+
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
