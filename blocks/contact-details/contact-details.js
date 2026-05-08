@@ -2,20 +2,11 @@ export default function decorate(block) {
   const rows = [...block.children];
   if (!rows.length) return;
 
-  // EDS strips the header row (Contact Details | Georgia)
-  // Region name is passed via the block's parent section heading or data attribute
-  // Get it from the block's class list or section data
-  const wrapper = block.closest('.contact-details-wrapper');
-
-  // Try to get region from block header — EDS puts it in block.dataset or class
-  // The second cell of header row becomes accessible via block's title
-  const blockTitle = block.closest('[data-block-name]');
-  const regionName = blockTitle?.title?.trim()
-    || rows[0]?.children[0]?.textContent?.trim()
-    || '';
-
+  // Row 0 = region name (first data row after EDS strips header)
+  const regionName = rows[0]?.children[0]?.textContent?.trim() || '';
   const regionKey = regionName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 
+  const wrapper = block.closest('.contact-details-wrapper');
   if (wrapper) {
     wrapper.dataset.region = regionKey;
     wrapper.style.display = 'none';
@@ -32,7 +23,8 @@ export default function decorate(block) {
   intro.textContent = 'As always, you can call us if you have questions or need help with our care and services. Select the right phone number from the list below.';
   block.appendChild(intro);
 
-  rows.forEach((row) => {
+  // rows[1]+ are the contact items
+  rows.slice(1).forEach((row) => {
     const cells = [...row.children];
     const label = cells[0]?.textContent?.trim();
     const value = cells[1]?.innerHTML?.trim();
@@ -57,7 +49,6 @@ export default function decorate(block) {
       );
       item.appendChild(content);
     }
-
     block.appendChild(item);
   });
 }
