@@ -59,10 +59,15 @@ a:hover { text-decoration: none; }
 
 main {
   display: block;
-  max-width: 860px;
+  max-width: 780px;
   margin: 0 auto;
-  padding: var(--spacing-l) var(--spacing-m);
+  padding: 40px 24px;
 }
+
+main .section {
+  margin-bottom: 32px;
+}
+
 
 main .section { padding: var(--spacing-m) 0; }
 .main-content { flex: 1; min-width: 0; }
