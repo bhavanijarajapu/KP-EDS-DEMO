@@ -2,14 +2,14 @@
 
 .contact-details-wrapper {
   margin: var(--spacing-m) 0;
-  border-top: 1px solid var(--kp-border-light);
   padding-top: var(--spacing-m);
+  border-top: 1px solid var(--kp-border-light);
 }
 
 .contact-details h2 {
-  font-size: 28px;
+  font-size: 24px;
   color: var(--kp-navy-dark);
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: 4px;
 }
 
 .contact-details .region-intro {
@@ -19,8 +19,8 @@
 }
 
 .contact-details .contact-item {
+  padding: 12px 0;
   border-bottom: 1px solid var(--kp-border-light);
-  padding: var(--spacing-m) 0;
 }
 
 .contact-details .contact-item:last-child {
@@ -28,17 +28,16 @@
 }
 
 .contact-details .contact-item h3 {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--kp-navy-dark);
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .contact-details .contact-item a.phone {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--kp-blue-link);
-  display: inline-block;
-  margin-bottom: 4px;
+  display: inline;
   text-decoration: underline;
 }
 
@@ -47,7 +46,12 @@
 }
 
 .contact-details .contact-item p {
-  margin: 0 0 4px;
+  margin: 0;
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.4;
+}
+
+.contact-details .contact-item div {
+  font-size: 15px;
+  line-height: 1.4;
 }
