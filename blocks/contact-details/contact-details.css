@@ -19,12 +19,7 @@
 }
 
 .contact-details .contact-item {
-  padding: 12px 0;
-  border-bottom: 1px solid var(--kp-border-light);
-}
-
-.contact-details .contact-item:last-child {
-  border-bottom: none;
+  padding: 8px 0;
 }
 
 .contact-details .contact-item h3 {
