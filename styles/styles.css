@@ -65,9 +65,17 @@ main {
 }
 
 main .section {
-  margin-bottom: 32px;
+  margin-bottom: 0;
+  padding: 0;
 }
 
+main .section.region-selector-container {
+  margin-top: 16px;
+}
+
+main > div {
+  padding: 0;
+}
 
 main .section { padding: var(--spacing-m) 0; }
 .main-content { flex: 1; min-width: 0; }
