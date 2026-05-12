@@ -1,0 +1,35 @@
+/* KP Emergency Box Block */
+
+.emergency-box-wrapper {
+  margin: 24px 0;
+}
+
+.emergency-box {
+  border: 1px solid #d4a843;
+  border-radius: 4px;
+  padding: 16px 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: #fff;
+}
+
+.emergency-box .emergency-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.emergency-box .emergency-content h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--kp-navy-dark);
+  margin: 0 0 6px;
+}
+
+.emergency-box .emergency-content p {
+  font-size: 15px;
+  color: var(--kp-navy-dark);
+  margin: 0;
+  line-height: 1.5;
+}
