@@ -5,7 +5,7 @@ const STORAGE_KEY = 'kp-region-selection';
  * EDS auto-generates /{folder}.json with {data: [{path, title, ...}]}
  */
 async function fetchFragmentIndex(folderPath) {
-  const indexUrl = `${folderPath}.json`;
+  const indexUrl = `${folderPath}/query-index.json`;
   try {
     const resp = await fetch(indexUrl);
     if (!resp.ok) throw new Error(`Index fetch failed: ${resp.status}`);
