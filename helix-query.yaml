@@ -1,0 +1,16 @@
+version: 1
+
+indices:
+  fragments:
+    include:
+      - /fragments/**
+    properties:
+      title:
+        select: head > title
+        value: |
+          match(attribute, '(.+)')
+      path:
+        select: head > meta[name="path"]
+        value: |
+          match(attribute, '(.+)')
+    target: /fragments/contact-details.json
