@@ -1,16 +1,16 @@
 version: 1
 
 indices:
-  fragments:
+  contact-details:
     include:
-      - /fragments/**
+      - /fragments/contact-details/**
+    exclude:
+      - /fragments/contact-details
     properties:
       title:
         select: head > title
-        value: |
-          match(attribute, '(.+)')
-      path:
-        select: head > meta[name="path"]
-        value: |
-          match(attribute, '(.+)')
-    target: /fragments/contact-details.json
+        value: text
+      description:
+        select: head > meta[name="description"]
+        attribute: content
+    target: /fragments/contact-details/query-index.json
