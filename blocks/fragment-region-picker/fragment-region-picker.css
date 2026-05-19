@@ -1,0 +1,124 @@
+/* ============================================
+   Fragment Region Picker Block
+   KP EDS Demo
+   ============================================ */
+
+/* Controls row — label + select */
+.fragment-region-picker .region-picker-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--spacing-m, 24px);
+  flex-wrap: wrap;
+}
+
+.fragment-region-picker .region-picker-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--kp-navy-dark, #00337c);
+  white-space: nowrap;
+}
+
+.fragment-region-picker .region-picker-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2300337c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  border: 2px solid var(--kp-blue-link, #0070c0);
+  border-radius: 4px;
+  padding: 8px 40px 8px 12px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--kp-navy-dark, #00337c);
+  cursor: pointer;
+  min-width: 240px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fragment-region-picker .region-picker-select:focus {
+  outline: none;
+  border-color: var(--kp-navy-dark, #00337c);
+  box-shadow: 0 0 0 3px rgba(0, 112, 192, 0.25);
+}
+
+.fragment-region-picker .region-picker-select:hover {
+  border-color: var(--kp-navy-dark, #00337c);
+}
+
+/* Loading state — controls */
+.fragment-region-picker .region-picker-loading {
+  color: var(--kp-navy-dark, #00337c);
+  font-size: 15px;
+  font-style: italic;
+}
+
+/* Content panel */
+.fragment-region-picker .region-picker-content {
+  border-top: 2px solid var(--kp-border-light, #d8dde6);
+  padding-top: var(--spacing-m, 24px);
+  min-height: 120px;
+  transition: opacity 0.2s ease;
+}
+
+/* Loading state — content panel */
+.fragment-region-picker .region-picker-content.loading {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Fragment content — contact-details block rendered inside */
+.fragment-region-picker .region-picker-content h2 {
+  font-size: 22px;
+  color: var(--kp-navy-dark, #00337c);
+  margin-bottom: 8px;
+}
+
+.fragment-region-picker .region-picker-content h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--kp-navy-dark, #00337c);
+  margin-bottom: 6px;
+}
+
+.fragment-region-picker .region-picker-content a.phone {
+  font-size: 16px;
+  color: var(--kp-blue-link, #0070c0);
+  display: inline-block;
+  margin-bottom: 4px;
+  text-decoration: underline;
+}
+
+.fragment-region-picker .region-picker-content a.phone:hover {
+  text-decoration: none;
+}
+
+.fragment-region-picker .region-picker-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 6px;
+}
+
+.fragment-region-picker .region-picker-content .contact-item {
+  border-bottom: 1px solid var(--kp-border-light, #d8dde6);
+  padding: var(--spacing-m, 24px) 0;
+}
+
+.fragment-region-picker .region-picker-content .contact-item:last-child {
+  border-bottom: none;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .fragment-region-picker .region-picker-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fragment-region-picker .region-picker-select {
+    width: 100%;
+    min-width: unset;
+  }
+}
