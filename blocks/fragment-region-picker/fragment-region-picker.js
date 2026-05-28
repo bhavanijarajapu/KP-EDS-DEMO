@@ -57,14 +57,24 @@ function loadSelection() {
 async function renderFragment(fragmentPath, contentPanel) {
   contentPanel.classList.add('loading');
   contentPanel.innerHTML = '';
-  const { loadFragment } = await import('/scripts/aem.js');
-  const fragment = await loadFragment(fragmentPath);
-  if (fragment) {
-    contentPanel.append(...fragment.childNodes);
+
+  try {
+    // Use the fragment block's own loadFragment utility
+    const { loadFragment } = await import('../fragment/fragment.js');
+    const fragment = await loadFragment(fragmentPath);
+    if (fragment) {
+      while (fragment.firstElementChild) {
+        contentPanel.appendChild(fragment.firstElementChild);
+      }
+    }
+  } catch (e) {
+    console.error('[fragment-region-picker] render error:', e);
+    const html = await fetchFragment(fragmentPath);
+    contentPanel.innerHTML = html;
   }
+
   contentPanel.classList.remove('loading');
 }
-/**
  * Builds the dropdown <select> from the sorted fragment index.
  */
 function buildSelect(fragments) {
