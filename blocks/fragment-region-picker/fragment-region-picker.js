@@ -57,26 +57,13 @@ function loadSelection() {
 async function renderFragment(fragmentPath, contentPanel) {
   contentPanel.classList.add('loading');
   contentPanel.innerHTML = '';
-
-  const html = await fetchFragment(fragmentPath);
-
-  // Wrap in a div so we can decorate blocks inside
-  const wrapper = document.createElement('div');
-  wrapper.innerHTML = html;
-
-  // EDS block decoration — import from scripts.js
-  // decorateMain handles block discovery + decoration for injected HTML
-  const { decorateMain } = await import('/scripts/scripts.js');
-  decorateMain(wrapper);
-
-  // Await any loadEager / lazy phases if needed
-  const { loadBlocks } = await import('/scripts/aem.js');
-  await loadBlocks(wrapper);
-
-  contentPanel.appendChild(wrapper);
+  const { loadFragment } = await import('/scripts/aem.js');
+  const fragment = await loadFragment(fragmentPath);
+  if (fragment) {
+    contentPanel.append(...fragment.childNodes);
+  }
   contentPanel.classList.remove('loading');
 }
-
 /**
  * Builds the dropdown <select> from the sorted fragment index.
  */
