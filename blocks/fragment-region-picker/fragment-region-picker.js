@@ -75,6 +75,8 @@ async function renderFragment(fragmentPath, contentPanel) {
 
   contentPanel.classList.remove('loading');
 }
+
+/*
  * Builds the dropdown <select> from the sorted fragment index.
  */
 function buildSelect(fragments) {
